@@ -46,17 +46,17 @@ jobs:
         run: npm run build:all
 
       #andddd.... Deploy!
-      # - name: Deploy 🙏
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with:
-      #     folder: .
+      - name: Deploy 🙏
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: .
 
       # Deploy with other action
-      - name: Deploy to GHP
-        if: success()
-        uses: crazy-max/ghaction-github-pages@v3
-        with:
-          target_branch: gh-pages
-          build_dir: .
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Deploy to GHP
+      #   if: success()
+      #   uses: crazy-max/ghaction-github-pages@v3
+      #   with:
+      #     target_branch: gh-pages
+      #     build_dir: .
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
