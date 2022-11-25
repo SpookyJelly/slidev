@@ -2,7 +2,8 @@
   "name": "3dlibs",
   "private": true,
   "scripts": {
-    "build": "echo 3d",
+    "build": "slidev build",
+    "build:serve": "slidev build --base /presentations/3dlibs/dist/",
     "dev": "slidev --open",
     "export": "slidev export"
   },

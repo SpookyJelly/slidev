@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "echo placeholder",
+    "build": "slidev build",
+    "build:serve": "slidev build --base /presentations/lab/dist/",
     "dev": "slidev --open"
   },
   "author": "",
