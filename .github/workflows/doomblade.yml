@@ -19,23 +19,23 @@ jobs:
 
       # find Cache
       # node_module을 캐시하는 것은 npm ci 와 호환되지도 않고, Node 버전 호환성도 파괴할 수도 있기 때문에 비추
-      - name: Cache node modules (npm cache)
-        id: npm-cache-dir
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-      - uses: actions/cache@v3
-        id: npm-cache # cache-hit를 위해서 사용 `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
-        with:
-          path: ${{ steps.npm-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+      # - name: Cache node modules (npm cache)
+      #   id: npm-cache-dir
+      #   run: |
+      #     echo "::set-output name=dir::$(npm config get cache)"
+      # - uses: actions/cache@v3
+      #   id: npm-cache # cache-hit를 위해서 사용 `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
+      #   with:
+      #     path: ${{ steps.npm-cache-dir.outputs.dir }}
+      #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-node-
 
       # If cache missed
-      # - name: Install Dependencies
+      - name: Install Dependencies
 
-      #   if: steps.npm-cache.outputs.cache-hit != 'true'
-      #   run: npm install
+        #   if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm install
 
       - name: Blade is being forged...
         run: npm run build:all
