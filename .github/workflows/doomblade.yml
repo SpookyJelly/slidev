@@ -32,10 +32,10 @@ jobs:
             ${{ runner.os }}-node-
 
       # If cache missed
-      - name: Install Dependencies
+      # - name: Install Dependencies
 
-        if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm install
+      #   if: steps.npm-cache.outputs.cache-hit != 'true'
+      #   run: npm install
 
       - name: Blade is being forged...
         run: npm run build:all
