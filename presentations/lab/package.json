@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "slidev build",
-    "build:serve": "slidev build --base /presentations/lab/dist/",
+    "build:serve": "slidev build --base /slidev/presentations/lab/dist/",
     "dev": "slidev --open"
   },
   "author": "",

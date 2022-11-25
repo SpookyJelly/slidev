@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "slidev build",
-    "build:serve": "slidev build --base /presentations/3dlibs/dist/",
+    "build:serve": "slidev build --base /slidev/presentations/3dlibs/dist/",
     "dev": "slidev --open",
     "export": "slidev export"
   },
