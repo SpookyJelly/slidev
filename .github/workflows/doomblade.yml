@@ -5,7 +5,7 @@ on: push
 jobs:
   #This work contains a job called "Autumn_Katana"
   Autumn_Katana:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
 
     steps:
       #Github Actions runs after checkout on linux
@@ -39,3 +39,9 @@ jobs:
 
       - name: Blade is being forged...
         run: npm run build:all
+
+      #andddd.... Deploy!
+      - name: Deploy ✈️
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: .
