@@ -1,0 +1,16 @@
+{
+  "name": "slidev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:all": "npm run build --workspaces"
+  },
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "presentations/3Dlibs",
+    "presentations/lab"
+  ]
+}
