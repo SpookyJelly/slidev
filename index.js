@@ -1,1 +1,1 @@
-alert("js script linked");
+// alert("js script linked");
