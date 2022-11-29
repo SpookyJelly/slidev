@@ -6,15 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:all": "npm run build:serve --workspaces --if-present",
-    "3dlibs": "npm -w @presentations/3dlibs run",
+    "web3d": "npm -w @presentations/web3d",
     "lab": "npm -w @presentations/lab run",
     "shared": "npm -w @presentations/shared run"
   },
   "author": "",
   "license": "ISC",
   "workspaces": [
-    "presentations/3dlibs",
     "presentations/lab",
-    "presentations/shared"
+    "presentations/shared",
+    "presentations/web3d"
   ]
 }
