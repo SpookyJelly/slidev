@@ -1,0 +1,18 @@
+{
+  "name": "@presentations/web3d",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "slidev --open",
+    "export": "slidev export",
+    "build": "slidev build",
+    "build:serve": "slidev build --base /slidev/presentations/web3d/dist/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@slidev/cli": "^0.37.1",
+    "@slidev/theme-default": "^0.21.2"
+  }
+}
