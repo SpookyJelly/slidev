@@ -1,0 +1,17 @@
+{
+  "name": "@presentations/lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "slidev build",
+    "build:serve": "slidev build --base /slidev/presentations/lab/dist/",
+    "dev": "slidev --open"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@slidev/cli": "^0.37.0",
+    "@slidev/theme-default": "^0.21.2"
+  }
+}
