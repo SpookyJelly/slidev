@@ -3,7 +3,7 @@
 theme: seriph
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
+# background: https://source.unsplash.com/collection/94734566/1920x1080
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -21,11 +21,18 @@ drawings:
   persist: false
 # use UnoCSS
 css: unocss
+# fonts:
+  # serif: 'Robot Slab'
+
+#default
+default:
+  layout: 'default'
+layout: 'cover'
 ---
 
-# Welcome to Slidev
+# World of 3D library in Node.js
 
-Presentation slides for developers
+
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
@@ -33,7 +40,7 @@ Presentation slides for developers
   </span>
 </div>
 
-<div class="abs-br m-6 flex gap-2">
+<!-- <div class="abs-br m-6 flex gap-2">
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
     <carbon:edit />
   </button>
@@ -41,7 +48,7 @@ Presentation slides for developers
     class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
     <carbon-logo-github />
   </a>
-</div>
+</div> -->
 
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
@@ -49,22 +56,26 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 ---
 
-# What is Slidev?
+# 3D graphics in Web
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
+3D 그래픽을 웹에서 보여준다는 것은 height/width/depth 세 가지 축을 가진 공간 좌표에서 기하학적 데이터로 3차원적으로 표현한 뒤, 2차원적 결과물로 출력하는 것이다.
+
+이는 WebGL, HTML Canvas, WebGPU를 이용하여 구현 가능하다. 그러나, 이들은 개발자가 그대로 사용하기에는 너무 어렵다보니 이것들을 편하게 사용할 수 있도록 해주는 라이브러리들이 많이 나왔다. 이번 세션에서 이것들을 알아보도록 하자.
+
+
+<!-- - 📝 **Text-based** - focus on the content with Markdown, and then style them later
 - 🎨 **Themable** - theme can be shared and used with npm packages
 - 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
 - 🤹 **Interactive** - embedding Vue components to enhance your expressions
 - 🎥 **Recording** - built-in recording and camera view
 - 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
+- 🛠 **Hackable** - anything possible on a webpage -->
 
 <br>
 <br>
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+<!-- Read more about [Why Slidev?](https://sli.dev/guide/why) -->
 
 <!--
 You can have `style` tag in markdown to override the style for the current page.

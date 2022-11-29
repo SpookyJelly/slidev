@@ -1,5 +1,5 @@
 {
-  "name": "3dlibs",
+  "name": "@presentations/3Dlibs",
   "private": true,
   "scripts": {
     "build": "slidev build",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@slidev/cli": "^0.37.0",
-    "@slidev/theme-default": "*",
+    "@slidev/theme-default": "^0.21.2",
     "@slidev/theme-seriph": "*"
   }
 }

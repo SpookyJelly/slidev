@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:all": "npm run build:serve --workspaces"
+    "build:all": "npm run build:serve --workspaces",
+    "3Dlibs": "npm -w @presentations/3Dlibs run",
+    "lab": "npm -w @presentations/lab run",
+    "shared": "npm -w @presentations/shared run"
   },
   "author": "",
   "license": "ISC",
   "workspaces": [
     "presentations/3Dlibs",
-    "presentations/lab"
+    "presentations/lab",
+    "presentations/shared"
   ]
 }
