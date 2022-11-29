@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:all": "npm run build:serve --workspaces --if-present",
-    "3Dlibs": "npm -w @presentations/3Dlibs run",
+    "3dlibs": "npm -w @presentations/3dlibs run",
     "lab": "npm -w @presentations/lab run",
     "shared": "npm -w @presentations/shared run"
   },

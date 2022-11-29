@@ -1,5 +1,5 @@
 {
-  "name": "@presentations/3Dlibs",
+  "name": "@presentations/3dlibs",
   "private": true,
   "scripts": {
     "build": "slidev build",
