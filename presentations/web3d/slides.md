@@ -21,15 +21,13 @@ drawings:
   persist: false
 # use UnoCSS
 css: unocss
-# fonts:
-  # serif: 'Robot Slab'
 
-#default
-default:
-  layout: 'default'
+fonts:
+    sans: 'Noto Sans KR'
+    serif: "Noto Serif KR"
+    mono: "Nanum Gothic Coding"
 layout: 'cover'
 ---
-
 # World of 3D library in Node.js
 
 
@@ -55,22 +53,82 @@ The last comment block of each slide will be treated as slide notes. It will be 
 -->
 
 ---
+layout: 'default'
 
-# 3D graphics in Web
-
-
-3D 그래픽을 웹에서 보여준다는 것은 height/width/depth 세 가지 축을 가진 공간 좌표에서 기하학적 데이터로 3차원적으로 표현한 뒤, 2차원적 결과물로 출력하는 것이다.
-
-이는 WebGL, HTML Canvas, WebGPU를 이용하여 구현 가능하다. 그러나, 이들은 개발자가 그대로 사용하기에는 너무 어렵다보니 이것들을 편하게 사용할 수 있도록 해주는 라이브러리들이 많이 나왔다. 이번 세션에서 이것들을 알아보도록 하자.
+---
+# Web3D
 
 
-<!-- - 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage -->
+- 웹에 내장되어 사용자와 상호작용 할 수 있는 3D 콘텐츠 구현에 관련된 모든 기술을 총칭
+- 사용자에게 직관적인 인터페이스를 흥미있게 제공
+- 웹의 역할이 점점 더 커짐에 따라, 3D 그래픽 요소가 핵심 비지니스 로직이 되기도 한다
+
+
+
+---
+layout: 'default'
+---
+# 3D를 웹에서 보여줄 때 필요한 것
+
+<div @click="$slidev.nav.next" grid="~ cols-2 gap-4">
+    <div class="img-wrapper">
+        <img src="/3d-graphics.png"/>
+    </div>
+    <div class="items-center flex">
+        <ol>
+            <li> 3개 축 (Height/Width/Depth)으로 표현되는 공간 좌표</li>
+            <li>부피와 질감을 가지는 물체</li>
+            <li>사용자의 뷰포트를 나타낼 카메라</li>
+            <li>물체에 투사될 빛</li>
+        </ol>
+    </div>
+</div>
+<div v-click class="my-8  text-center font-bold text-red-500">
+    <h3> 👉 그러나 개발자가 Row하게 컨트롤하기 매우 어려움</h3>
+</div>
+
+<style>
+
+</style>
+
+<!-- 3D 그래픽을 웹에서 보여준다는 것은 height/width/depth 세 가지 축을 가진 공간 좌표에서 기하학적 데이터로 3차원적으로 표현한 뒤, 2차원적 결과물로 출력하는 것이다.
+
+이는 WebGL, HTML Canvas, WebGPU를 이용하여 구현 가능하다. 그러나, 이들은 개발자가 그대로 사용하기에는 너무 어렵다보니 이것들을 편하게 사용할 수 있도록 해주는 라이브러리들이 많이 나왔다. 이번 세션에서 이것들을 알아보도록 하자. -->
+
+---
+
+# 브라우저에서 사용할 수 있는 도구들
+
+<div grid="~ cols-2 gap-4">
+    <div>
+        <ul>
+            <li class="strong">WebGL</li>
+            <li class="strong">WebGL 2.0</li>
+            <li class="strong">WebGPU</li>
+        </ul>
+    </div>
+    <div class="items-center flex">
+        <strong>👉 전부 별도의 플러그인 없이 WebAPI로서 제공</strong>
+    </div>
+</div>
+
+
+<br/>
+
+|     |  WebGL   | WebGL 2.0  | WebGPU  |
+| --- | ---      | ---        | ---     |
+|언어 | Javascript | Javascript | Javascript|
+| 기반 | 	OpenGL ES 2.0 | OpenGL ES 3.0 | Vulkan, Metal, Direct3D 12 |
+|  GPU 사용 | O  | O  | O  |
+|  모바일 지원 | O  | O  | X  |
+|  출시일 | 2011년 03월  | 2017년 01월  | 2021년 05월  |
+
+
+
+<!-- 핵심은 전부 GPU를 사용할 수 있는데, webapi로서 제공된다는걸 언급 -->
+
+
+
 
 <br>
 <br>
@@ -85,7 +143,7 @@ Learn more: https://sli.dev/guide/syntax#embedded-styles
 -->
 
 <style>
-h1 {
+/* h1 {
   background-color: #2B90B6;
   background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
   background-size: 100%;
@@ -93,7 +151,7 @@ h1 {
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
-}
+} */
 </style>
 
 <!--
