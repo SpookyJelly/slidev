@@ -43,7 +43,7 @@ jobs:
         run: npm install
 
       - name: Blade is being forged...
-        run: npm run build:all --if-present
+        run: npm run build:all
 
       #andddd.... Deploy!
       - name: Deploy 🙏
