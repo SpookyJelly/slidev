@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "workspaces": [
-    "presentations/3Dlibs",
+    "presentations/3dlibs",
     "presentations/lab",
     "presentations/shared"
   ]
