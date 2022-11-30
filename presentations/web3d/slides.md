@@ -28,7 +28,7 @@ fonts:
     mono: "Nanum Gothic Coding"
 layout: 'cover'
 ---
-# World of 3D library in Node.js
+# 3D Graphics in Web
 
 
 
@@ -37,6 +37,9 @@ layout: 'cover'
     Press Space for next page <carbon:arrow-right class="inline"/>
   </span>
 </div>
+
+<!-- ./components/UtillityBar.vue -->
+<UtillityBar/>
 
 <!-- <div class="abs-br m-6 flex gap-2">
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
@@ -63,12 +66,13 @@ layout: 'default'
 - 사용자에게 직관적인 인터페이스를 흥미있게 제공
 - 웹의 역할이 점점 더 커짐에 따라, 3D 그래픽 요소가 핵심 비지니스 로직이 되기도 한다
 
-
+<!-- ./components/UtillityBar.vue -->
+<UtillityBar/>
 
 ---
 layout: 'default'
 ---
-# 3D를 웹에서 보여줄 때 필요한 것
+# Requirements for rendering 3D on web
 
 <div @click="$slidev.nav.next" grid="~ cols-2 gap-4">
     <div class="img-wrapper">
@@ -87,6 +91,9 @@ layout: 'default'
     <h3> 👉 그러나 개발자가 Row하게 컨트롤하기 매우 어려움</h3>
 </div>
 
+<!-- ./components/UtillityBar.vue -->
+<UtillityBar/>
+
 <style>
 
 </style>
@@ -97,7 +104,7 @@ layout: 'default'
 
 ---
 
-# 브라우저에서 사용할 수 있는 도구들
+# Tools can be used on web
 
 <div grid="~ cols-2 gap-4">
     <div>
@@ -125,22 +132,13 @@ layout: 'default'
 
 
 
-<!-- 핵심은 전부 GPU를 사용할 수 있는데, webapi로서 제공된다는걸 언급 -->
-
-
-
-
 <br>
 <br>
 
 <!-- ./components/UtillityBar.vue -->
 <UtillityBar/>
-<!-- Read more about [Why Slidev?](https://sli.dev/guide/why) -->
 
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
+<!-- 핵심은 전부 GPU를 사용할 수 있는데, webapi로서 제공된다는걸 언급 -->
 
 <style>
 /* h1 {
@@ -157,6 +155,212 @@ Learn more: https://sli.dev/guide/syntax#embedded-styles
 <!--
 Here is another comment.
 -->
+
+---
+layout: default
+---
+# API exists. but....
+너무 빡세요
+
+
+<div class="flex justify-center">
+    <div id='img-wrapper'>
+        <img src="/lose_your_sanity.png"/>
+    </div>
+</div>
+<h3 class="text-center my-5 text-stroke-sm text-white">When You Opened Webgl2 fundamentals Page</h3>
+
+<!-- ./components/UtillityBar.vue -->
+<UtillityBar/>
+
+<style>
+    #img-wrapper {
+        width:350px    
+    }
+    #img-wrapper img{
+        aspect-ratio: 3/4
+    }
+    h3{
+        width:350px;
+        position:fixed;
+        top: 90px;
+        left: 50%;
+        transform: translate(-50%,50%);
+        -webkit-text-stroke:1px black;
+        font-size: 2rem;
+    }
+</style>
+
+<!-- API는 존재하지만 상당한 러닝커브가 있음을 어필 -->
+
+---
+---
+# Frameworks!
+프레임워크 전성시대
+
+
+<div style="width:500px" class="m-auto">
+    <img src="/framework_example.png" style="width:100%; height:100%"/>
+</div>
+
+
+
+
+<!-- 그래서 JS 생태계에서는 이들을 편하게 쓸 수 해줄 수 있는 프레임워크들이 많이 생겼습니다. 
+하지만 대부분의 프로젝트가 오픈소스 였기에, 현재 (2022년)까지 계속 액티브하게 남아있는 프로젝트는 드뭅니다.
+
+3D 그래픽스는 고도로 복잡한 작업이고, 각 프레임워크마다 이를 구현하는 방식과 API는 확연히 다릅니다. 따라서, 장기적으로 진행되어야할 프로젝트라면 단단하고 오래 갈 수 있는 프레임워크를 고르는 것이 중요한 것은 당연합니다
+-->
+---
+---
+# Frameworks!
+프레임워크 전성시대
+
+<div class="my-10 justify-center flex">
+    <p style="font-size:10rem; display:inline-block; align-self:center; line-height:unset;" class="text-center">🤔</p>
+</div>
+<div v-click class="text-center"> 
+    <h3> 프레임워크는 많은데... 그래서 뭘 써야하는거야?</h3>
+</div>
+
+<!-- 그래서 살펴보고 몇가지를 골라봤다 -->
+
+---
+---
+# Criteria
+평가 기준
+
+<br/>
+
+<div grid="~ cols-2" class="gap-5">
+    <div>
+        <h3 class="mb-4">정량지표</h3>
+        <hr/>
+        <ul class="my-2">
+            <li>type defination 제공</li>
+            <li>그룹 단위의 Maintainer </li>
+            <li>Github Stars</li>
+        </ul>
+    </div>
+    <div>
+        <h3 class="mb-4">정성지표</h3>
+        <hr/>
+        <ul class="my-2">
+            <li>커뮤니티 활성도</li>
+            <li>개발 자유도</li>
+            <li>적은 코드량</li>
+            <li>Well-made Docs</li>
+        </ul>
+    </div>
+</div>
+
+
+<!-- 이 요소들을 만족하는 라이브러리들 소개  원래는 잔뜩 있었는데, 죽어버린 라이브러리들이 너무 많다는 이야기도 언급하면 좋음-->
+
+
+---
+layout: iframe-left
+url: https://threejs.org/docs/
+---
+# Three.js
+가장 오래되고 유명한 라이브러리
+
+<br/>
+<br/>
+
+**정량지표**
+
+|   |   |
+|---|---|
+| Type Defination | O |
+| 그룹 단위의 Maintainer | X |
+| Github Stars | 87,190 (2022/12)|
+
+
+
+---
+layout: iframe-left
+url: https://doc.babylonjs.com/features/introductionToFeatures
+---
+# Babylon.js
+MS에서 개발하는 3D 엔진
+
+<br/>
+<br/>
+
+**정량지표**
+
+|   |   |
+|---|---|
+| Type Defination | Built-in TS |
+| 그룹 단위의 Maintainer | O |
+| Github Stars | 18,859 (2022/12)|
+
+
+---
+layout: iframe-left
+url: https://aframe.io/examples/showcase/helloworld/
+---
+# A-Frame
+WebVR에 특화된 프레임워크
+
+<br/>
+<br/>
+
+**정량지표**
+|   |   |
+|---|---|
+| Type Defination | O |
+| 그룹 단위의 Maintainer | O |
+| Github Stars | 14,804 (2022/12)|
+
+
+
+
+---
+---
+# I choose..
+(통상적인 웹인 경우)
+
+<br/>
+<br/>
+
+> #### *Three.js* or *Bablyon.js*
+
+<br/>
+<br/>
+
+
+Because of...
+
+<v-clicks>
+
+- 넓은 생태계
+- 광대한 학습자료
+- 활발한 개발자들
+
+</v-clicks>
+
+
+<!-- 통상적인 웹 환경에서는 사실상 three.js, babylon.js 둘 중 하나 선택임
+둘 다 충분한 생태계를 가지고 있고, 관련 자료도 많을 뿐더러, 적극적으로 개발되고 있기 때문
+ -->
+---
+---
+# Showcase
+
+-> Three js 랑 Babylon.js 로 동일한 오브젝트 그리고, 코드까지 공개
+
+
+<!-- ./components/BabylonExample.vue -->
+<BabylonExample/>
+---
+
+-> Three.js와 Babylon.js에서 상대 라이브러리와 달리 특화된 장점 설명
+
+---
+
+-> webGPU 사용시 퍼포먼스
 
 ---
 
