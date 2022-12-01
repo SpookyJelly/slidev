@@ -12,7 +12,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babylonjs/core": "^5.34.0",
+    "@babylonjs/materials": "^5.34.0",
     "@slidev/cli": "^0.37.1",
-    "@slidev/theme-default": "^0.21.2"
+    "@slidev/theme-default": "^0.21.2",
+    "three": "^0.147.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.146.0"
   }
 }
