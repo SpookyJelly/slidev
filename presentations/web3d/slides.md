@@ -88,7 +88,7 @@ layout: 'default'
     </div>
 </div>
 <div v-click class="my-8  text-center font-bold text-red-500">
-    <h3> 👉 그러나 개발자가 Row하게 컨트롤하기 매우 어려움</h3>
+    <h3> 👉 그러나 개발자가 low하게 컨트롤하기 매우 어려움</h3>
 </div>
 
 <!-- ./components/UtillityBar.vue -->
