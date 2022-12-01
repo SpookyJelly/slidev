@@ -203,7 +203,8 @@ layout: default
     <img src="/framework_example.png" style="width:100%; height:100%"/>
 </div>
 
-
+<!-- ./components/UtillityBar.vue -->
+<UtillityBar/>
 
 
 <!-- 그래서 JS 생태계에서는 이들을 편하게 쓸 수 해줄 수 있는 프레임워크들이 많이 생겼습니다. 
@@ -222,6 +223,9 @@ layout: default
 <div v-click class="text-center"> 
     <h3> 프레임워크는 많은데... 그래서 뭘 써야하는거야?</h3>
 </div>
+
+<!-- ./components/UtillityBar.vue -->
+<UtillityBar/>
 
 <!-- 그래서 살펴보고 몇가지를 골라봤다 -->
 
@@ -254,7 +258,8 @@ layout: default
     </div>
 </div>
 
-
+<!-- ./components/UtillityBar.vue -->
+<UtillityBar/>
 <!-- 이 요소들을 만족하는 라이브러리들 소개  원래는 잔뜩 있었는데, 죽어버린 라이브러리들이 너무 많다는 이야기도 언급하면 좋음-->
 
 
@@ -277,6 +282,8 @@ url: https://threejs.org/docs/
 | Github Stars | 87,190 (2022/12)|
 
 
+<!-- ./components/UtillityBar.vue -->
+<UtillityBar/>
 
 ---
 layout: iframe-left
@@ -297,6 +304,9 @@ MS에서 개발하는 3D 엔진
 | Github Stars | 18,859 (2022/12)|
 
 
+<!-- ./components/UtillityBar.vue -->
+<UtillityBar/>
+
 ---
 layout: iframe-left
 url: https://aframe.io/examples/showcase/helloworld/
@@ -315,7 +325,8 @@ WebVR에 특화된 프레임워크
 | Github Stars | 14,804 (2022/12)|
 
 
-
+<!-- ./components/UtillityBar.vue -->
+<UtillityBar/>
 
 ---
 ---
@@ -341,26 +352,155 @@ Because of...
 
 </v-clicks>
 
+ <!-- ./components/UtillityBar.vue -->
+<UtillityBar/>
 
 <!-- 통상적인 웹 환경에서는 사실상 three.js, babylon.js 둘 중 하나 선택임
 둘 다 충분한 생태계를 가지고 있고, 관련 자료도 많을 뿐더러, 적극적으로 개발되고 있기 때문
  -->
+
 ---
 ---
 # Showcase
+직접 테스트 해보세요
 
--> Three js 랑 Babylon.js 로 동일한 오브젝트 그리고, 코드까지 공개
+<div grid="~ cols-2 gap-4">
+    <div>
+        <p>Three.js</p>
+        <!-- ./components/ThreeExample.vue -->
+        <ThreeExample/>
+    </div>
+    <div>
+        <p>Babylon.js</p>
+        <!-- ./components/BabylonExample.vue -->
+        <BabylonExample/>
+    </div>
+</div>
+
+<!-- ./components/UtillityBar.vue -->
+<UtillityBar/>
+
+---
+layout: two-cols
+
+---
+<div style="margin-right:20px;">
+    <span>Three.js</span>
+    
+```ts {all|1}
+onMounted(() => {
+    //...
+    /* camera */
+    const camera = new THREE.PerspectiveCamera(%opt%)
+    /** scene */
+    const scene = new THREE.Scene()
+    /* light */
+    const light = new THREE.PointLight(%opt%)
+    scene.add(light) 
+
+    /* object */
+    const sphere = new THREE.Mesh(
+        // Mesh의 형상을 정의하는 gemetry
+        new THREE.SphereGeometry(%opt%), 
+        //  Mesh의 색,질감을 정의하는 material
+        new THREE.MeshPhongMaterial(%opt%) 
+    )
+    scene.add(sphere)
+    //... object 정의
+
+    const renderer = new THREE.WebGLRenderer();
+    // ** camera와 별도로 control를 생성후 부착해야 조작 가능
+    const controls = new ArcballControls(
+        camera, renderer.domElement
+    );
+```
+</div>
+
+::right::
 
 
-<!-- ./components/BabylonExample.vue -->
-<BabylonExample/>
+
+<div>
+<span style="visibility:hidden">. </span>
+```ts {all}
+    // requestAnimationFrame API를 사용해 직접 renderer 부팅
+    const tick = () => {
+      renderer.render(scene, camera);
+      window.requestAnimationFrame(tick); // <-- must be required
+    };
+    tick();
+
+})
+```
+
+<h3>👉 Result </h3>
+    <br/>
+    <!-- ./components/ThreeExample.vue -->
+    <ThreeExample/>
+</div>
+
+
+
+<!-- ./components/UtillityBar.vue -->
+<UtillityBar/>
+
+<style>
+    .slidev-layout .two-columns{
+        gap:20px !important
+    }
+    .col-left{
+        padding:100px !important
+    }
+
+</style>
+
+
+---
+layout: two-cols 
 ---
 
--> Three.js와 Babylon.js에서 상대 라이브러리와 달리 특화된 장점 설명
+<div style="margin-right:20px;">
+    <small>Babylon.js</small>
 
----
+```ts{2|1|3}
+onMounted(()=>{
+    //...
+    /* Bablyon은 Engine 인스턴스가 선행적으로 요구됨 */
+    const engine = new Engine(canvas)
+    
+    /* camera */
+    const camera = new ArcRotateCamera(%opt%)
+    // 카메라에 맞는 controller가 생성시점에 같이 생성
+    camera.attachControl(canvas)
+    
+    //* light */
+    const light = new HemisphericLight(%opt%, scene);
+    
+    //* object*/
+    const sphere = CreateSphere(%opt%)
+    const material = new GridMaterial(%opt)
+    sphere.material = material
+    //... object 정의
 
--> webGPU 사용시 퍼포먼스
+    engine.runRenderLoop(() => {
+        scene.render()
+    })
+    
+})
+```
+</div>
+
+::right::
+
+<div>
+    <h3>👉 Result </h3>
+    <br/>
+    <!-- ./components/BabylonExample.vue -->
+    <BabylonExample/>
+</div>
+
+<!-- ./components/UtillityBar.vue -->
+<UtillityBar/>
 
 ---
 

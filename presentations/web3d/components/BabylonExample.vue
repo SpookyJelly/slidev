@@ -7,15 +7,12 @@ import {
   CreateSphere,
   Scene,
   HemisphericLight,
+  ArcRotateCamera,
 } from "@babylonjs/core";
 import { GridMaterial } from "@babylonjs/materials";
-import { onMounted, ref, watchEffect } from "vue";
+import { onMounted, ref } from "vue";
 
 const canvas = ref<HTMLCanvasElement>();
-// const canvas = document.getElementById("renderCanvas") as HTMLCanvasElement;
-
-//build babylon engine
-// const engine = new Engine(canvas.value!);
 
 onMounted(() => {
   if (canvas.value) {
@@ -23,10 +20,16 @@ onMounted(() => {
 
     const scene = new Scene(engine);
 
-    const camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
-
-    camera.setTarget(Vector3.Zero());
-    camera.attachControl(canvas, true);
+    const camera = new ArcRotateCamera(
+      "camera",
+      -Math.PI / 2,
+      Math.PI / 2.5,
+      5,
+      new Vector3(0, 2, -3),
+      scene
+    );
+    // camera.setTarget(Vector3.Zero());
+    camera.attachControl(canvas, false);
 
     const light = new HemisphericLight("light1", new Vector3(0, 1, 0), scene);
     light.intensity = 0.7;
@@ -46,10 +49,7 @@ onMounted(() => {
     engine.runRenderLoop(() => {
       scene.render();
     });
-  } else {
-    console.log("doom");
   }
-  console.info("asdasdasd");
 });
 </script>
 
@@ -61,6 +61,11 @@ onMounted(() => {
 
 <style scoped>
 #babylon-canvas-wrapper {
-  max-width: 700px;
+  width: 400px;
+  aspect-ratio: 16/8;
+}
+#babylon-canvas {
+  width: 100%;
+  height: 100%;
 }
 </style>
