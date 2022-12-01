@@ -40,7 +40,7 @@ const moveToGithub = () => {
         <line x1="0" y1="10" x2="0" y2="40" stroke="current"></line>
       </svg>
     </div>
-    <div :onclick="moveToGithub" class="clickable-btn">
+    <div :onclick="moveToShowCase" class="clickable-btn">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -57,7 +57,7 @@ const moveToGithub = () => {
         ></path>
       </svg>
     </div>
-    <div :onclick="moveToShowCase" class="clickable-btn">
+    <div :onclick="moveToGithub" class="clickable-btn">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
