@@ -141,15 +141,7 @@ layout: 'default'
 <!-- 핵심은 전부 GPU를 사용할 수 있는데, webapi로서 제공된다는걸 언급 -->
 
 <style>
-/* h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-} */
+
 </style>
 
 <!--
@@ -377,6 +369,8 @@ Because of...
     </div>
 </div>
 
+
+
 <!-- ./components/UtillityBar.vue -->
 <UtillityBar/>
 
@@ -387,7 +381,7 @@ layout: two-cols
 <div style="margin-right:20px;">
     <span>Three.js</span>
     
-```ts {all|1}
+```ts {all|3,4|5,6|7,8,9|11-18|21|22-25|100|100}
 onMounted(() => {
     //...
     /* camera */
@@ -415,6 +409,10 @@ onMounted(() => {
     );
 ```
 </div>
+<arrow v-if="$slidev.nav.clicks === 3" x1="370" y1="320" x2="210" y2="250" color="#564" width="3" arrowSize="1"/>
+<arrow v-if="$slidev.nav.clicks === 4" x1="320" y1="480" x2="210" y2="410" color="#564" width="3" arrowSize="1"/>
+
+
 
 ::right::
 
@@ -422,7 +420,7 @@ onMounted(() => {
 
 <div>
 <span style="visibility:hidden">. </span>
-```ts {all}
+```ts {1-5|6}
     // requestAnimationFrame API를 사용해 직접 renderer 부팅
     const tick = () => {
       renderer.render(scene, camera);
@@ -454,6 +452,8 @@ onMounted(() => {
 
 </style>
 
+<!-- 각 요소 + 하는거, 화살표 붙은데는 scene에 add가 필요한거까지  -->
+
 
 ---
 layout: two-cols 
@@ -462,7 +462,7 @@ layout: two-cols
 <div style="margin-right:20px;">
     <small>Babylon.js</small>
 
-```ts{2|1|3}
+```ts{3-4|6-8|9|11-12|14-18|20-23}
 onMounted(()=>{
     //...
     /* Bablyon은 Engine 인스턴스가 선행적으로 요구됨 */
@@ -489,6 +489,7 @@ onMounted(()=>{
 })
 ```
 </div>
+<arrow v-if="$slidev.nav.clicks === 2" x1="370" y1="320" x2="210" y2="250" color="#564" width="3" arrowSize="1"/>
 
 ::right::
 
@@ -503,26 +504,87 @@ onMounted(()=>{
 <UtillityBar/>
 
 ---
+layout: default
+---
+# Pros and Cons
+코드만 봐서는 비슷해보이는데..?
 
-# Navigation
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+<div id="container">
+    <div id="three-wrapper">
+        <h3>Three.js</h3>
+        <br/>
+        <strong>Pros</strong>
+        <ul>
+            <li>다양한 예제들과 튜토리얼 존재</li>
+            <li>풍부한 커뮤니티 리소스</li>
+            <li>국내에 유경험자 다수</li>
+        </ul>
+        <strong>Cons</strong>
+        <ul>
+            <li>빈약한 문서</li>
+            <li>불안정한 API</li>
+            <li>무거운 보일러플레이트</li>
+        </ul>
+    </div>
+    <div id="babylon-wrapper">
+        <h3>Babylon.js</h3>
+        <br/>
+        <strong>Pros</strong>
+        <ul>
+            <li>안정적인 API</li>
+            <li>훌륭한 공식 문서</li>
+            <li>WebGPU 지원</li>
+            <li>자체 운영 playground로 즉각 실행 가능</li>
+        </ul>
+        <strong>Cons</strong>
+        <ul>
+            <li>낮은 인지도</li>
+            <li>가파른 러닝커브</li>
+        </ul>
+    </div>
+</div>
 
-### Keyboard Shortcuts
+<style>
+    #container {
+        display:flex;
+        min-height:350px;
+        max-weight:400px;
+        gap:10px;
+    }
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+    #three-wrapper,#babylon-wrapper{
+        border: 1px solid gold;
+        padding:1rem;
+        border-radius: 2rem;
+        background: #605f5f;
+        width:100%;
+        align-items: stretch;
+    }
+    ul {
+        margin-bottom:1rem;
+    }
+</style>
 
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-<!-- ./components/UtillityBar.vue -->
-<UtillityBar/>
+<!-- Three.js는 도제식으로 배울수 밖에 없나? 라는 생각이 든다 -->
+
+---
+layout: center
+---
+
+
+# Summary
+TLDR;
+
+<br/>
+
+다양한 예제와 튜토리얼로 배우고, 빠르게 웹 앱에서 3D 오브젝트를 띄우고 싶다
+
+
+👉 `Three.js`가 더 적절
+
+<br/>
+
+다채로운 기능이 필요하고, Bleeding Edge에서 노는 것을 좋아한다.
+
+👉 `Bablyon.js`가 더 적절
